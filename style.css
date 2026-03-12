@@ -353,7 +353,7 @@ text-decoration:none;
 /* ---------- NAVBAR ---------- */
 
 .navbar{
-    padding:15px 10px;
+    padding:15px 12px;
 }
 
 .navbar-container{
@@ -368,20 +368,22 @@ text-decoration:none;
 }
 
 .nav-links a{
-    padding:8px 12px;
+    padding:8px 14px;
     font-size:14px;
 }
+
 
 /* ---------- HERO ---------- */
 
 .hero{
-    margin-top:160px;
+    margin-top:170px;
+    padding:0 20px;
     font-size:18px;
 }
 
 .Name{
     padding-top:0;
-    font-size:28px;
+    font-size:30px;
 }
 
 .subtitle,
@@ -391,7 +393,17 @@ text-decoration:none;
 
 .contact{
     font-size:15px;
+    line-height:1.5;
 }
+
+
+/* ---------- SECTION SPACING ---------- */
+
+section{
+    padding-left:20px;
+    padding-right:20px;
+}
+
 
 /* ---------- DEV + QA SECTION ---------- */
 
@@ -411,12 +423,14 @@ text-decoration:none;
     margin-top:0;
 }
 
+
 /* ---------- TITLES ---------- */
 
 .title-dev,
 .title-QA{
     font-size:34px;
 }
+
 
 /* ---------- HEADINGS ---------- */
 
@@ -426,12 +440,46 @@ text-decoration:none;
     letter-spacing:2px;
 }
 
+
 /* ---------- LIST ---------- */
 
 .Dev-skill-section li,
 .QA-section li{
     font-size:15px;
-    line-height:1.6;
+    line-height:1.7;
+}
+
+
+/* ---------- CURRENT PROJECT ---------- */
+
+.project-container{
+    flex-direction:column;
+}
+
+.project-image{
+    width:100%;
+    margin-top:20px;
+}
+
+
+/* ---------- EXPERTISE CARDS ---------- */
+
+.expertise-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+.expertise-card{
+    width:100%;
+    padding:25px;
+}
+
+
+/* ---------- IMAGES ---------- */
+
+img{
+    max-width:100%;
+    height:auto;
 }
 
 }
