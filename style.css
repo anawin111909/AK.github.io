@@ -43,7 +43,9 @@ body{
     font-weight:bold;
     color:#4fd1ff;
 }
-
+.Name{
+    font-size:50px;
+}
 .nav-links{
     display:flex;
     list-style:none;
@@ -100,7 +102,7 @@ body{
 
 .Dev-skill-section,
 .QA-section{
-    padding:100px 20px;
+    padding:20px 20px;
 }
 
 .dev-skill-container,
@@ -223,7 +225,7 @@ line-height:1.6;
 /* -------- CURRENT PROJECT -------- */
 
 .project-section{
-padding:120px 20px;
+padding:50px 20px;
 }
 
 .project-container{
@@ -353,129 +355,44 @@ text-decoration:none;
 /* ---------- NAVBAR ---------- */
 
 .navbar{
-    padding:15px 12px;
+padding:15px 12px;
 }
-
-.navbar-container{
-    flex-direction:column;
-    gap:12px;
-}
-
-.nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
-}
-
-.nav-links a{
-    padding:8px 14px;
-    font-size:14px;
-}
-
 
 /* ---------- HERO ---------- */
 
 .hero{
-    margin-top:170px;
-    padding:0 20px;
-    font-size:18px;
+margin-top:170px;
+padding:0 20px;
+font-size:18px;
 }
 
-.Name{
-    padding-top:0;
-    font-size:30px;
-}
-
-.subtitle,
-.platforms{
-    font-size:16px;
-}
-
-.contact{
-    font-size:15px;
-    line-height:1.5;
-}
-
-
-/* ---------- SECTION SPACING ---------- */
-
-section{
-    padding-left:20px;
-    padding-right:20px;
-}
-
-
-/* ---------- DEV + QA SECTION ---------- */
+/* ---------- DEV + QA ---------- */
 
 .dev-skill-container,
 .QA-container{
-    flex-direction:column;
-    gap:35px;
+flex-direction:column;
+gap:35px;
 }
 
-.Dev-skill-left,
-.QA-skill-left{
-    padding-left:0;
-}
-
-.Dev-skill-right,
-.QA-skill-right{
-    margin-top:0;
-}
-
-
-/* ---------- TITLES ---------- */
-
-.title-dev,
-.title-QA{
-    font-size:34px;
-}
-
-
-/* ---------- HEADINGS ---------- */
-
-.Dev-skill-section h3,
-.QA-section h3{
-    font-size:18px;
-    letter-spacing:2px;
-}
-
-
-/* ---------- LIST ---------- */
-
-.Dev-skill-section li,
-.QA-section li{
-    font-size:15px;
-    line-height:1.7;
-}
-
-
-/* ---------- EXPERTISE SECTION ---------- */
+/* ---------- EXPERTISE ---------- */
 
 .expertise-grid{
-    display:grid;              /* สำคัญ */
-    grid-template-columns:1fr; /* เรียงลง */
-    gap:20px;
-}
-
-.expertise-card{
-    width:100%;
-    padding:25px;
-}
-
+grid-template-columns:1fr;
+gap:20px;
 }
 
 /* ---------- CURRENT PROJECT ---------- */
 
 .project-container{
-    flex-direction:column;
+flex-direction:column;
+gap:30px;
 }
 
-.project-image{
-    width:100%;
-    margin-top:20px;
+.project-right{
+margin-top:20px;
 }
 
+}
 
 /* ---------- IMAGES ---------- */
 
@@ -483,5 +400,9 @@ img{
     max-width:100%;
     height:auto;
 }
-
+.project-right img{
+width:100%;
+max-width:700px;
+border-radius:14px;
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
 }
