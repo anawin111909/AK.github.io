@@ -60,12 +60,11 @@ body{
 
 .hero{
     text-align:center;
-    margin-top:120px;
+    margin-top:140px;   /* ลดลงเล็กน้อย */
 }
 
 .Name{
-    padding-top:120px;
-    font-size:40px;
+    padding-top:0;      /* ลบ padding-top */
 }
 
 .subtitle,
@@ -171,39 +170,88 @@ li{
 
 @media (max-width:768px){
 
-.dev-skill-container,
-.QA-container{
-    flex-direction:column;
-    gap:40px;
-}
+/* ---------- NAVBAR ---------- */
 
-.title-dev,
-.title-QA{
-    font-size:40px;
-}
-
-.Dev-skill-section h3,
-.QA-section h3{
-    font-size:20px;
+.navbar{
+    padding:15px 10px;
 }
 
 .navbar-container{
     flex-direction:column;
-    gap:10px;
+    gap:12px;
 }
 
 .nav-links{
     flex-wrap:wrap;
     justify-content:center;
+    gap:10px;
 }
 
+.nav-links a{
+    padding:8px 12px;
+    font-size:14px;
+}
+
+/* ---------- HERO ---------- */
+
 .hero{
-    font-size:20px;
+    margin-top:160px;
+    font-size:18px;
+}
+
+.Name{
+    padding-top:0;
+    font-size:28px;
 }
 
 .subtitle,
 .platforms{
+    font-size:16px;
+}
+
+.contact{
+    font-size:15px;
+}
+
+/* ---------- DEV + QA SECTION ---------- */
+
+.dev-skill-container,
+.QA-container{
+    flex-direction:column;
+    gap:35px;
+}
+
+.Dev-skill-left,
+.QA-skill-left{
+    padding-left:0;
+}
+
+.Dev-skill-right,
+.QA-skill-right{
+    margin-top:0;
+}
+
+/* ---------- TITLES ---------- */
+
+.title-dev,
+.title-QA{
+    font-size:34px;
+}
+
+/* ---------- HEADINGS ---------- */
+
+.Dev-skill-section h3,
+.QA-section h3{
     font-size:18px;
+    letter-spacing:2px;
+}
+
+/* ---------- LIST ---------- */
+
+.Dev-skill-section li,
+.QA-section li{
+    font-size:15px;
+    line-height:1.6;
 }
 
 }
