@@ -450,6 +450,21 @@ section{
 }
 
 
+/* ---------- EXPERTISE SECTION ---------- */
+
+.expertise-grid{
+    display:grid;              /* สำคัญ */
+    grid-template-columns:1fr; /* เรียงลง */
+    gap:20px;
+}
+
+.expertise-card{
+    width:100%;
+    padding:25px;
+}
+
+}
+
 /* ---------- CURRENT PROJECT ---------- */
 
 .project-container{
@@ -459,19 +474,6 @@ section{
 .project-image{
     width:100%;
     margin-top:20px;
-}
-
-
-/* ---------- EXPERTISE CARDS ---------- */
-
-.expertise-grid{
-    grid-template-columns:1fr;
-    gap:20px;
-}
-
-.expertise-card{
-    width:100%;
-    padding:25px;
 }
 
 
