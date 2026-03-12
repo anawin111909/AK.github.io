@@ -374,15 +374,23 @@ text-decoration:none;
 
 /* ---------- NAVBAR ---------- */
 .navbar-container{
+display:flex;
 flex-direction:column;
 align-items:center;
 gap:10px;
 }
 
 .nav-links{
+display:flex;
 flex-wrap:wrap;
 justify-content:center;
 gap:8px;
+margin:0;
+padding:0;
+}
+
+.nav-links li{
+list-style:none;
 }
 
 .nav-links a{
