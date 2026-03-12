@@ -78,6 +78,7 @@ overflow-x:hidden;
     background:#1e3a8a;
 }
 
+
 /* ---------------- HERO ---------------- */
 
 .hero{
@@ -380,39 +381,27 @@ text-decoration:none;
 @media (max-width:768px){
 
 /* ---------- NAVBAR ---------- */
-.menu-toggle{
-display:block;
-font-size:28px;
-cursor:pointer;
-color:white;
-}
-
 .navbar-container{
 flex-direction:column;
 align-items:center;
+gap:10px;
 }
 
 .nav-links{
-display:none;
-flex-direction:column;
-width:100%;
-text-align:center;
-margin-top:10px;
-gap:10px;
-padding:0;
+flex-wrap:wrap;
+justify-content:center;
+gap:8px;
 }
 
-.nav-links li{
-list-style:none;
-}
-
-.nav-links.active{
-display:flex;
+.nav-links a{
+padding:8px 12px;
+font-size:14px;
 }
 
 .logo{
 font-size:18px;
 }
+
 /* ---------- HERO ---------- */
 
 .hero{
