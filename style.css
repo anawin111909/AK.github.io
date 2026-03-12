@@ -43,6 +43,13 @@ overflow-x:hidden;
     align-items:center;
 }
 
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+    color:white;
+}
+
 .logo{
     font-size:20px;
     font-weight:bold;
@@ -373,29 +380,20 @@ text-decoration:none;
 @media (max-width:768px){
 
 /* ---------- NAVBAR ---------- */
-.navbar-container{
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:10px;
+.menu-toggle{
+display:block;
 }
 
 .nav-links{
+display:none;
+flex-direction:column;
+width:100%;
+text-align:center;
+margin-top:10px;
+}
+
+.nav-links.active{
 display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:8px;
-margin:0;
-padding:0;
-}
-
-.nav-links li{
-list-style:none;
-}
-
-.nav-links a{
-padding:8px 12px;
-font-size:14px;
 }
 
 .logo{
