@@ -18,6 +18,11 @@ background-attachment:fixed;
 color:white;
 min-height:100vh;
 overflow-x:hidden;
+
+}
+
+main{
+    flex:1;
 }
 
 /* ---------------- NAVBAR ---------------- */
@@ -182,7 +187,7 @@ li{
     background:#071229;
     font-size:14px;
     box-shadow:0 6px 25px rgba(0,0,0,0.5);
-    margin-top:80px;
+    margin-top:200px;
 }
 
 /* -------- EXPERTISE SECTION -------- */
@@ -370,7 +375,9 @@ color:white;
 transform:translateY(-2px);
 text-decoration:none;
 }
-/* INTRO SECTION */
+
+
+/* ---------------- INTRO SECTION ----------------*/
 
 .Introduction-section{
     padding: 80px 10%;
@@ -443,6 +450,52 @@ text-decoration:none;
 .profile-img:hover{
     transform: scale(1.05);
 }
+
+/* ---------------- Contact SECTION ---------------- */
+.contact-left{
+    max-width:600px;
+}
+.project-container{
+    display:flex;
+    justify-content:flex-start;
+}
+.Contact-title{
+    border-left:8px solid #00aaff;
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 20px;
+}
+.contact-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 16px;
+    margin-top: 8px;
+
+    border: 2px solid #00b4ff;
+    border-radius: 8px;
+
+    color: #8fd3ff;
+    text-decoration: none;
+    font-size: 14px;
+
+    background: transparent;
+    transition: 0.3s ease;
+}
+
+.contact-btn:hover{
+    background: #00b4ff;
+    color: #001b2e;
+}
+.contact-btn:hover{
+    background:#00b4ff;
+    color:#001b2e;
+    box-shadow:0 0 10px #00b4ff;
+}
+
 
 /* ---------------- MOBILE ---------------- */
 
