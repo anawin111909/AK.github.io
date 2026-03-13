@@ -370,7 +370,79 @@ color:white;
 transform:translateY(-2px);
 text-decoration:none;
 }
+/* INTRO SECTION */
 
+.Introduction-section{
+    padding: 80px 10%;
+}
+
+/* container layout */
+
+.project-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* LEFT TEXT AREA */
+
+.Introduction-left{
+    max-width: 600px;
+}
+
+/* TITLE */
+
+.introduction-title{
+    border-left:8px solid #00aaff;
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* name */
+
+.Name-Introduction{
+    font-size: 28px;
+}
+.Name-Unitysity{
+    font-size: 20px;
+}
+/* paragraph */
+
+.Introduction-left p{
+    text-align: justify;      /* เรียงขอบซ้ายขวา */
+    max-width: 620px;         /* ความกว้างข้อความ */
+    line-height: 1.7;         /* ระยะห่างบรรทัด */
+    margin-bottom: 20px;      /* ระยะห่างระหว่าง paragraph */
+    font-size: 17px;
+    color: #99b9f1;
+}
+
+/* RIGHT IMAGE */
+
+.profile-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* profile image */
+
+.profile-img{
+    width: 620px;
+    max-width: 100%; 
+    transform: translateX(60px);
+    transition: transform 0.3s ease;
+}
+
+/* hover effect */
+
+.profile-img:hover{
+    transform: scale(1.05);
+}
 
 /* ---------------- MOBILE ---------------- */
 
