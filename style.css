@@ -141,7 +141,7 @@ overflow-x:hidden;
 .title-QA{
     border-left:8px solid #00aaff;
     padding-left:15px;
-    font-size:60px;
+    font-size:50px;
     font-weight:700;
     margin-bottom:20px;
 }
@@ -157,11 +157,11 @@ overflow-x:hidden;
 
 /* ---------------- LIST ---------------- */
 .Dev-skill-right{
-    margin-top:110px;
+    margin-top:95px;
 }
 
 .QA-skill-right{
-    margin-top:110px;
+    margin-top:95px;
 }
 ul{
     margin-top:10px;
