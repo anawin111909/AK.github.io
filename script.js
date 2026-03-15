@@ -1,4 +1,4 @@
-/*  mini game */
+/*  mini game 
 const canvas = document.getElementById("gameCanvas")
 const ctx = canvas.getContext("2d")
 
@@ -189,6 +189,8 @@ if(!gameStarted){
 let highScore = localStorage.getItem("runnerHighScore") || 0
 
 update()
+
+*/
 
 /* Scroll Button */
 
