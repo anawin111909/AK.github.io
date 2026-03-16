@@ -624,12 +624,14 @@ text-decoration:none;
 .media-slider{
     display:flex;
     transition:0.4s;
+    width:100%;
 }
 
 .media-slider img,
 .media-slider video{
     width:100%;
     border-radius:8px;
+    flex-shrink:0;   
 }
 
 /* buttons */

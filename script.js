@@ -285,20 +285,54 @@ window.addEventListener("scroll", revealOnScroll);
 
 
 /* Project1  */
-const slider = document.querySelector(".media-slider")
-const prev = document.querySelector(".prev")
-const next = document.querySelector(".next")
+document.addEventListener("DOMContentLoaded", function(){
 
-let index = 0
+const slider = document.querySelector(".media-slider");
+const images = document.querySelectorAll(".media-slider img");
 
-next.onclick = () =>{
-    index++
-    if(index > 3) index = 0
-    slider.style.transform = `translateX(-${index * 100}%)`
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+
+let index = 0;
+
+function slide(){
+    slider.style.transform = "translateX(-" + (index * 100) + "%)";
 }
 
-prev.onclick = () =>{
-    index--
-    if(index < 0) index = 3
-    slider.style.transform = `translateX(-${index * 100}%)`
-}
+next.addEventListener("click", function(){
+
+    if(index < images.length - 1){
+        index++;
+    }else{
+        index = 0;
+    }
+
+    slide();
+
+});
+
+prev.addEventListener("click", function(){
+
+    if(index > 0){
+        index--;
+    }else{
+        index = images.length - 1;
+    }
+
+    slide();
+
+});
+
+});
+
+setInterval(() => {
+
+    index++;
+
+    if(index >= images.length){
+        index = 0;
+    }
+
+    updateSlide();
+
+},4000);
