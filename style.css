@@ -160,32 +160,47 @@ main{
 }
 
 
-/* ---------------- Mini Game ---------------- 
+/* ---------------- Mini Game ---------------- */
 
-.mini-game{
-    text-align:center;
-    margin-top:40px;
+#gameCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1; /* ให้สูงขึ้นนิดนึง */
 }
 
-#gameCanvas{
-    background:#0b1f3a;
-    border:2px solid #3aa3ff;
-    border-radius:12px;
-    display:block;
-    margin:auto;
-    max-width:100%;
-}
-*/
+#ui {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 
-/* ---------------- DEV + QA SECTION BASE ---------------- */
+    z-index: 999; /* อยู่หน้าสุด */
+    
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+}
+#ui {
+    pointer-events: auto;
+}
+
+#gameCanvas {
+    pointer-events: auto;
+}
+
+
+/* ---------------- DEV + QA + design SECTION BASE ---------------- */
 
 .Dev-skill-section,
-.QA-section{
+.QA-section,
+.Game-design-section{
     padding:20px 20px;
 }
 
 .dev-skill-container,
-.QA-container{
+.QA-container,
+.Game-design-container{
     max-width:1200px;
     margin:auto;
 
@@ -200,7 +215,9 @@ main{
 .Dev-skill-left,
 .Dev-skill-right,
 .QA-skill-left,
-.QA-skill-right{
+.QA-skill-right,
+.Game-design-skill-left,
+.Game-design-skill-right{
     flex:1;
     
 }
@@ -215,7 +232,8 @@ main{
 }
 
 .title-dev,
-.title-QA{
+.title-QA,
+.title-Game-design{
     font-size:40px;
     font-weight:700;
     margin-bottom:20px;
@@ -224,7 +242,8 @@ main{
 /* ---------------- HEADINGS ---------------- */
 
 .Dev-skill-section h3,
-.QA-section h3{
+.QA-section h3,
+.Game-design-section h3{
     margin-top:30px;
     letter-spacing:3px;
     font-size:24px;
@@ -236,6 +255,9 @@ main{
 }
 
 .QA-skill-right{
+    margin-top:75px;
+}
+.Game-design-skill-right{
     margin-top:75px;
 }
 ul{
@@ -250,14 +272,15 @@ li{
 
 /* ---------------- FOOTER ---------------- */
 
-.footer-bar{
-    width:100%;
-    padding:20px 0;
-    text-align:center;
-    background:#071229;
-    font-size:14px;
-    box-shadow:0 6px 25px rgba(0,0,0,0.5);
+
+.footer-bar {
+    width: 100%;
     margin-top:200px;
+    padding: 20px 0;
+    text-align: center;
+    background: #071229;
+    font-size: 14px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.5);
 }
 
 /* -------- EXPERTISE SECTION -------- */

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+ <main class="main-content">
 <!-- ================= NAVBAR ================= -->
 <nav class="navbar">
   <div class="navbar-container">
@@ -34,7 +34,7 @@
 <h1 class="Name">Anawin Khlaiboonmee 👋</h1>
 
 <p class="subtitle">
-Junior Unity Game Developer | QA Game Tester
+Junior Unity Game Developer | QA Game Tester | Game Designer
 </p>
 
 <p class="platforms">
@@ -66,18 +66,18 @@ Android • WebGL • Windows • VR • AR • AI
 </div>
 
 
-<!-- ================= Game Runner================= 
-<section class="mini-game">
+<!-- ================= Game Shouting=================  
+<canvas id="gameCanvas"></canvas>
 
-<h2>Mini Runner Game</h2>
+<div id="ui">
+    <button id="startBtn">Start Game</button>
 
-<canvas id="gameCanvas" width="1000" height="350"></canvas>
-
-<p>Press SPACE to jump and collect coins</p>
-
-</section>
+    <p>Score: <span id="score">0</span></p>
+    <p>Time: <span id="time">10</span></p>
+    <p>High Score: <span id="highScore">0</span></p>
+    <p>Players: <span id="playerCount">0</span></p>
+</div>
 -->
-
 <!-- ================= UNITY DEVELOPER ================= -->
 <section class="Dev-skill-section" id="role">
 
@@ -154,7 +154,45 @@ Android • WebGL • Windows • VR • AR • AI
 
 </div>
 
+<!-- ================= GAME Designer ================= -->
+<section class="Game-design-section">
+
+<div class="Game-design-container">
+
+<!-- LEFT -->
+<div class="Game-design-skill-left">
+
+<h1 class="title-Game-design">Junior Game designer</h1>
+
+<h3>CORE GAME DESIGN SKILLS</h3>
+<ul>
+<li>Gameplay System Design</li>
+<li>Core Gameplay Loop Design</li>
+<li>Puzzle & Mechanic Design</li>
+<li>Player Experience & Engagement Design</li>
+<li>Game Balance & Difficulty Design</li>
+</ul>
+
+</div>
+
+<!-- RIGHT -->
+<div class="Game-design-skill-right">
+
+<h3>DESIGN EXPERIENCE</h3>
+<ul>
+<li>Designed and developed 6 game prototypes (AR, VR, Horror, Puzzle)</li>
+<li>Created gameplay systems, mechanics, and player interactions</li>
+<li>Designed core gameplay loops and player progression systems</li>
+<li>Applied playtesting feedback to improve game design</li>
+<li>Focused on player emotion (tension, strategy, decision-making)</li>
+</ul>
+
+</div>
+
+</div>
+
 </section>
+
 <!-- Expertise Section -->
 <section class="expertise-section" id="experience">
 
@@ -166,7 +204,7 @@ Android • WebGL • Windows • VR • AR • AI
 
 <div class="expertise-box">
 <h3>1 Year +</h3>
-<p>Unity Engine and C#</p>
+<p>Using Unity Engine and C#</p>
 </div>
 
 <div class="expertise-box">
@@ -175,13 +213,14 @@ Android • WebGL • Windows • VR • AR • AI
 </div>
 
 <div class="expertise-box">
-<h3>Game Testing</h3>
-<p>Exploratory Testing, Regression Testing and Bug Reporting</p>
+<h3>6 Game Prototype</h3>
+<p>Built 6 game prototypes using Unity, including AR, VR, and puzzle games, 
+  with focus on gameplay systems, mechanics, and interactive design</p>
 </div>
 
 <div class="expertise-box">
 <h3>Tools</h3>
-<p>Unity, GitHub, ML-Agents, AI, Adobe XD</p>
+<p>Unity, GitHub, ML-Agents, AI, Adobe XD, Figma</p>
 </div>
 
 </div>
@@ -239,7 +278,7 @@ class="btn-secondary">
 </div>
 
 </section>
-
+</main>
 <!-- ================= FOOTER ================= -->
 <footer class="footer-bar">
 

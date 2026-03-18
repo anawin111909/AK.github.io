@@ -1,194 +1,211 @@
-/*  mini game 
-const canvas = document.getElementById("gameCanvas")
-const ctx = canvas.getContext("2d")
+/* mini game 
 
-let gameStarted = false
-let gameOver = false
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+const startBtn = document.getElementById("startBtn");
+const safeElement = document.querySelector("section"); // หรือ class ที่ครอบ text
 
-let player = {
-    x:80,
-    y:280,
-    width:30,
-    height:30,
-    velocityY:0,
-    jumping:false
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// ---------------- STATE ----------------
+let gameRunning = false;
+let score = 0;
+let lifeTime = 0;
+let timeLeft = 10;
+
+// ---------------- GHOST ----------------
+let ghosts = [];
+
+function spawnGhost() {
+    return {
+        x: Math.random() * (canvas.width - 100) + 50,
+        y: Math.random() * (canvas.height - 200),
+        radius: 30,
+        type: Math.random() > 0.7 ? "bad" : "good",
+        opacity: 0
+    };
 }
 
-let gravity = 0.8
+function isOverlappingText(x, y, radius) {
+    const rect = document.querySelector("section").getBoundingClientRect();
 
-let obstacles = []
-let coins = []
+    return (
+        x + radius > rect.left &&
+        x - radius < rect.right &&
+        y + radius > rect.top &&
+        y - radius < rect.bottom
+    );
+}
 
-let score = 0
+function spawnGhost() {
+    let x, y;
 
-document.addEventListener("keydown", jump)
-canvas.addEventListener("click", startGame)
+    do {
+        x = Math.random() * canvas.width;
+        y = Math.random() * canvas.height;
+    } while (isOverlappingText(x, y, 30)); // 🔥 กันชน
 
-function startGame(){
+    return {
+        x,
+        y,
+        radius: 30,
+        type: Math.random() > 0.7 ? "bad" : "good",
+        opacity: 0
+    };
+}
 
-    if(!gameStarted){
-        gameStarted = true
+function spawnMultipleGhosts() {
+    ghosts = [];
+    let count = Math.floor(Math.random() * 2) + 4; // 4-5 ตัว
 
-        setInterval(spawnObstacle,2000)
-        setInterval(spawnCoin,3000)
+    for (let i = 0; i < count; i++) {
+        ghosts.push(spawnGhost());
+    }
+}
+// ---------------- START GAME ----------------
+startBtn.addEventListener("click", () => {
+
+    if (!gameRunning) {
+        // ▶ START GAME
+        gameRunning = true;
+
+        score = 0;
+        lifeTime = 0; // 🔥 reset timer
+
+        document.getElementById("score").textContent = score;
+        timeLeft = 10;
+
+        document.getElementById("time").textContent = timeLeft;
+        document.body.style.cursor = "url('gun.png'), auto";
+
+        startBtn.textContent = "End Game";
+
+        spawnMultipleGhosts();
+
+    } else {
+        // ⛔ END GAME
+        gameRunning = false;
+
+        score = 0;
+        lifeTime = 0; // 🔥 reset timer
+
+        document.getElementById("score").textContent = score;
+
+        document.body.style.cursor = "default";
+
+        startBtn.textContent = "Start Game";
+
+        ghosts = [];
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+});
+
+// ---------------- CLICK ยิง ----------------
+canvas.addEventListener("click", (e) => {
+    if (!gameRunning) return;
+
+    checkHit(e.clientX, e.clientY);
+});
+
+// ---------------- UPDATE ----------------
+function update() {
+    // fade
+    ghosts.forEach(ghost => {
+        if (ghost.opacity < 1) {
+            ghost.opacity += 0.02;
+        }
+    });
+
+    // timer ลดลง
+    timeLeft -= 1 / 60; // ลดตาม frame
+
+    if (timeLeft <= 0) {
+        gameOver();
+    }
+
+    document.getElementById("time").textContent = Math.ceil(timeLeft);
+
+    // spawn ใหม่
+    lifeTime++;
+    if (lifeTime > 300) {
+        spawnMultipleGhosts();
+        lifeTime = 0;
     }
 }
 
-function jump(e){
+// ---------------- DRAW ----------------
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if(e.code === "Space"){
+    ghosts.forEach(ghost => {
+        ctx.globalAlpha = ghost.opacity;
 
-        e.preventDefault()   // ป้องกันหน้าเว็บ scroll
+        ctx.beginPath();
+        ctx.arc(ghost.x, ghost.y, ghost.radius, 0, Math.PI * 2);
 
-        if(!gameStarted) return
+        ctx.fillStyle = ghost.type === "good" ? "green" : "red";
 
-        if(!player.jumping){
-            player.velocityY = -16
-            player.jumping = true
+        ctx.fill();
+    });
+
+    ctx.globalAlpha = 1;
+}
+
+// ---------------- HIT ----------------
+function checkHit(mouseX, mouseY) {
+    for (let i = 0; i < ghosts.length; i++) {
+        let ghost = ghosts[i];
+
+        let dx = mouseX - ghost.x;
+        let dy = mouseY - ghost.y;
+        let distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < ghost.radius) {
+            console.log("โดน!");
+
+            if (ghost.type === "good") {
+                score++;
+                timeLeft += 3;
+
+                document.getElementById("score").textContent = score;
+
+                ghosts.splice(i, 1); // ลบตัวที่โดน
+
+                return; // 🔥 สำคัญมาก
+            } 
+            
+            if (ghost.type === "bad") {
+                gameOver();
+                return; // 🔥 สำคัญมาก
+            }
         }
     }
 }
 
-window.addEventListener("keydown", function(e) {
-    if(e.code === "Space"){
-        e.preventDefault()
+// ---------------- LOOP ----------------
+function gameLoop() {
+    if (gameRunning) {
+        update();
+        draw();
     }
-})
+    requestAnimationFrame(gameLoop);
+}
+// ---------------- Game Over ----------------
+function gameOver() {
+    alert("Game Over!");
 
-function spawnObstacle(){
+    gameRunning = false;
 
-    if(!gameStarted) return
+    document.body.style.cursor = "default";
+    startBtn.textContent = "Start Game";
 
-    obstacles.push({
-        x:1000,
-        y:290,
-        width:20,
-        height:40
-    })
+    ghosts = [];
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-function spawnCoin(){
-
-    if(!gameStarted) return
-
-    coins.push({
-        x:1000,
-        y:220,
-        size:10
-    })
-}
-
-function update(){
-
-    ctx.clearRect(0,0,canvas.width,canvas.height)
-
-    // START SCREEN
-if(!gameStarted){
-
-    ctx.fillStyle="white"
-    ctx.textAlign="center"
-
-    ctx.font="42px Arial"
-    ctx.fillText("START GAME",canvas.width/2,canvas.height/2 - 20)
-
-    ctx.font="22px Arial"
-    ctx.fillText("High Score: " + highScore, canvas.width/2, canvas.height/2 + 20)
-
-    ctx.font="18px Arial"
-    ctx.fillText("Click screen to start",canvas.width/2,canvas.height/2 + 55)
-
-    requestAnimationFrame(update)
-    return
-}
-
-    // PLAYER PHYSICS
-    player.velocityY += gravity
-    player.y += player.velocityY
-
-    if(player.y > 280){
-        player.y = 280
-        player.jumping = false
-    }
-
-    // DRAW PLAYER
-    ctx.fillStyle="white"
-    ctx.fillRect(player.x,player.y,player.width,player.height)
-
-    // OBSTACLES
-    for(let i=0;i<obstacles.length;i++){
-
-        obstacles[i].x -= 6
-
-        ctx.fillStyle="red"
-        ctx.fillRect(obstacles[i].x,obstacles[i].y,obstacles[i].width,obstacles[i].height)
-
-        if(
-            player.x < obstacles[i].x + obstacles[i].width &&
-            player.x + player.width > obstacles[i].x &&
-            player.y < obstacles[i].y + obstacles[i].height &&
-            player.y + player.height > obstacles[i].y
-        ){
-        if(score > highScore){
-        highScore = score
-        localStorage.setItem("runnerHighScore", highScore)
-        }
-
-        alert("Game Over! Score: " + score)
-        resetGame()
-        }
-    }
-
-
-    // ResetGame
-    function resetGame(){
-
-    gameStarted = false
-
-    score = 0
-
-    obstacles = []
-    coins = []
-
-    player.y = 280
-    player.velocityY = 0
-    player.jumping = false
-
-    }
-
-    // COINS
-    for(let i=0;i<coins.length;i++){
-
-        coins[i].x -= 6
-
-        ctx.fillStyle="gold"
-        ctx.beginPath()
-        ctx.arc(coins[i].x,coins[i].y,coins[i].size,0,Math.PI*2)
-        ctx.fill()
-
-        if(
-            player.x < coins[i].x + coins[i].size &&
-            player.x + player.width > coins[i].x &&
-            player.y < coins[i].y + coins[i].size &&
-            player.y + player.height > coins[i].y
-        ){
-            coins.splice(i,1)
-            score++
-        }
-    }
-
-    // SCORE
-    ctx.fillStyle="white"
-    ctx.font="20px Arial"
-    ctx.textAlign="right"
-    ctx.fillText("Score: " + score, canvas.width - 20, 30)
-    ctx.fillText("High Score: " + highScore, canvas.width - 20, 55)
-
-    requestAnimationFrame(update)
-}
-
-let highScore = localStorage.getItem("runnerHighScore") || 0
-
-update()
+gameLoop();
 
 */
 
